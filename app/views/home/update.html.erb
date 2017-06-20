@@ -1,0 +1,13 @@
+<form action="/home/update_real/<%= @post.id %>", method: 'post')
+  <div class="form-group">
+    <%= label_tag :up_title, 'update_title:' %>
+    <input type="text", name="up_title" value="<%= @post.title %>"class="form-control">
+  </div>
+  <div class="form-group">
+    <%= label_tag :up_post, 'update_post:' %>
+    <input type="text", name="up_post" value="<%= @post.content %>"class="form-control">
+  </div>
+  <div class="submit">
+    <%= submit_tag 'enter', class: 'btn btn-default'%>
+  </div>
+</form>

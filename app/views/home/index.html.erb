@@ -1,0 +1,26 @@
+<%= form_tag('/home/create', method: 'post') do %>
+  <div class="form-group">
+    <%= label_tag :title, 'title:' %>
+    <%= text_field_tag :title, nil, class: 'form-control', placeholder: '제목을 입력하세요' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :post, 'post:' %>
+    <%= text_area_tag :post, nil, class: 'form-control', placeholder: '내용을 입력하세요'  %>
+  </div>
+  <div class="submit">
+    <%= submit_tag 'enter', class: 'btn btn-default'%>
+  </div>
+<% end %>
+<!--여기부터 post 출력되는 부분-->
+<% @posts.reverse_each do |p| %>
+  <div class="posts">
+    <hr>
+    제목 : <%= p.title %>
+    <br>
+    내용 : <%= p.content %>
+    <br>
+    수정하기 : <a href="/home/update/<%= p.id %>">update</a>
+    <br>
+    삭제하기 : <a href="/home/destroy/<%= p.id %>">destroy</a>
+    <hr>  </div>
+<% end %>
